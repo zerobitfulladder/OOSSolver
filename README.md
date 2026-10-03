@@ -23,6 +23,32 @@ The visualiser running the `campus` layout (5 lifts, 5 shuttles, 420 slots) at
 and the V3 solver planning every move.
 [Watch the full 75-second recording](docs/media/oossolver-demo.mp4).
 
+## Results
+
+Every run uses deterministic seeds, so each number reproduces exactly. The
+full write-ups, with every experiment and the defects the long runs exposed,
+are the characterization reports for [`campus`](reports/campus/report.md)
+and [`tiny_medipol`](reports/tiny_medipol/report.md).
+
+- **Acceptance battery: 7 of 7 gates pass.** The deepest car on a full
+  `dibaji` (100 of 100 seeds), the deepest SUV at 85% full, fill-then-dig
+  through the solver, a 164-car mass drain on `campus`, a full day cycle,
+  seven consecutive days without a reset, and dig and drain batteries on
+  every registered layout.
+- **30 simulated days** of commuter traffic on `campus`: 10,814 cars stored,
+  10,858 delivered, 0 stuck days, every car out by the end of the month, in
+  about 21 minutes of wall time.
+- **72 tests** in `tests/`.
+
+![30 simulated days on campus](docs/media/chart-month.png)
+
+![Retrieval time by burial depth](docs/media/chart-latency-depth.png)
+
+![Throughput under concurrent requests](docs/media/chart-concurrency.png)
+
+The charts are drawn from the reports' data by
+[`reports/make_readme_charts.py`](reports/make_readme_charts.py).
+
 ## The system
 
 An OOS facility stores and retrieves cars (sedans and SUVs), each riding on a
