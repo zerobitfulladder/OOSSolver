@@ -16,6 +16,13 @@ battery runs with `python -m oos.plan.battery --gate all`. An earlier RL
 training pipeline was removed once the solver passed the full battery; it
 survives in git history and in the docs under `docs/`.
 
+[![The visualiser driving the campus layout on its own](docs/media/oossolver-demo.gif)](docs/media/oossolver-demo.mp4)
+
+The visualiser running the `campus` layout (5 lifts, 5 shuttles, 420 slots) at
+16x speed, with the set-point world sending cars in and asking for them back
+and the V3 solver planning every move.
+[Watch the full 75-second recording](docs/media/oossolver-demo.mp4).
+
 ## The system
 
 An OOS facility stores and retrieves cars (sedans and SUVs), each riding on a
